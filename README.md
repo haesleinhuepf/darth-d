@@ -32,13 +32,6 @@ output_image = vary(input_image)
 
 Replacing regions in images is also possible. Note: handle this function with care! Do not manipulate scientific images.
 
-```
-new_image = replace(input_image, mask, 
-                    prompt="A simlar pattern like in the rest of the image")
-
-stackview.curtain(input_image, new_image)
-```
-
 ![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/jupyter_replace_screencast.gif)
 
 ### Jupyter magic
