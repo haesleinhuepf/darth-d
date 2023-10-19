@@ -67,9 +67,14 @@ image
 
 ### In Napari
 
-To generate images in Napari, click the `Tools > Generate > Image` button
+To generate images in Napari, click the `Tools > Generate > Image` menu
 
 ![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/napari_screenshot.png)
+
+You can modify regions in images. Note: handle this function with care! Do not manipulate scientific images.
+
+
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/replace_screencast.gif)
 
 ## Installation
 
