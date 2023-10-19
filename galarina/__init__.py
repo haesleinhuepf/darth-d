@@ -6,4 +6,5 @@ except:
     pass
 from ._gala import galarina
 from ._vary import vary
+from ._replace import replace
 

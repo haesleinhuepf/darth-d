@@ -2,10 +2,9 @@ def numpy_to_bytestream(data):
     import numpy as np
     from PIL import Image
     import io
-    from stackview._image_widget import _img_to_rgb
         
     # Convert the NumPy array to a PIL Image
-    image = Image.fromarray(_img_to_rgb(data).astype(np.uint8)).convert("RGBA")
+    image = Image.fromarray(data.astype(np.uint8)).convert("RGBA")
     
     # Create a BytesIO object
     bytes_io = io.BytesIO()
@@ -19,12 +18,16 @@ def numpy_to_bytestream(data):
     bytes_io.seek(0)
     return bytes_io.read()
 
-def images_from_url_responses(response):
+def images_from_url_responses(response, input_shape = None):
     from skimage.io import imread
+    from skimage import transform
     import numpy as np
-    images = np.asarray([imread(item['url']) for item in response['data']])
+    images = [imread(item['url']) for item in response['data']]
+
+    if input_shape is not None:
+        images = [transform.resize(image, input_shape, anti_aliasing=True, preserve_range=True).astype(image.dtype) for image in images]
     
     if len(images) == 1:
         return images[0]
     else:
-        return images
+        return np.asarray(images)
