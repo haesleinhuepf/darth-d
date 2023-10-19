@@ -21,6 +21,12 @@ from galarina import galarina
 import stackview # for visualization purposes only
 ```
 
+```
+%gala an image of a cat
+```
+
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/jupyter_screenshot.png)
+
 You can also vary images ([see this notebook](https://github.com/haesleinhuepf/galarina/blob/main/demo/demo_vary.ipynb)):
 ```
 from galarina import vary
