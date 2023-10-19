@@ -33,7 +33,7 @@ from galarina import gala
 %gala an image of a cat
 ```
 
-![docs/images/jupyter_screenshot.png]
+![](docs/images/jupyter_screenshot.png)
 
 You can also use the `%%gala` magic to produce multiple images. Just specify the number behind.
 
@@ -42,13 +42,13 @@ You can also use the `%%gala` magic to produce multiple images. Just specify the
 image of cat
 ```
 
-![docs/images/jupyter_screencast.gif]
+![](docs/images/jupyter_screencast.gif)
 
 ### In Napari
 
 To generate images in Napari, click the `Tools > Generate > Image` button
 
-![docs/images/napari_screenshot.png]
+![](docs/images/napari_screenshot.png)
 
 ## Installation
 
