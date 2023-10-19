@@ -13,7 +13,7 @@ A simple to use image generator based on OpenAIs DALL-E. It comes as [Juypter](h
 
 ### From Python
 
-You can generate images from Python like this ([See example noteboo](demo/demo_galarina.ipynb)).
+You can generate images from Python like this ([see this notebool](https://github.com/haesleinhuepf/galarina/blob/main/demo/demo_galarina.ipynb)).
 
 ```
 from galarina import galarina
@@ -21,7 +21,17 @@ from galarina import galarina
 import stackview # for visualization purposes only
 ```
 
-### In Jupyter
+You can also vary images ([see this notebook](https://github.com/haesleinhuepf/galarina/blob/main/demo/demo_vary.ipynb)):
+```
+from galarina import vary
+
+output_image = vary(input_image)
+```
+
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/vary_screenshot.png)
+
+
+### Jupyter magic
 
 You can use the `%gala` magic to produce a single image.
 
@@ -33,7 +43,7 @@ from galarina import gala
 %gala an image of a cat
 ```
 
-![](docs/images/jupyter_screenshot.png)
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/jupyter_screenshot.png)
 
 You can also use the `%%gala` magic to produce multiple images. Just specify the number behind.
 
@@ -42,13 +52,21 @@ You can also use the `%%gala` magic to produce multiple images. Just specify the
 image of cat
 ```
 
-![](docs/images/jupyter_screencast.gif)
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/jupyter_screencast.gif)
+
+You can also vary images like this:
+```
+%%gala vary
+image
+```
+
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/vary_jupyter_screenshot.png)
 
 ### In Napari
 
 To generate images in Napari, click the `Tools > Generate > Image` button
 
-![](docs/images/napari_screenshot.png)
+![](https://github.com/haesleinhuepf/galarina/raw/main/docs/images/napari_screenshot.png)
 
 ## Installation
 
