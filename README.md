@@ -9,6 +9,7 @@
 
 A simple to use image generator based on [OpenAIs DALL-E 2](https://openai.com/dall-e-2). 
 It comes as [napari](https://napari.org/) plugin and has a Python interface. 
+You need an [OpenAI API KEY](https://openai.com/blog/openai-api/) to use it.
 This package allows to do some scientifically forbidden things with image data. 
 Handle these functions with care.
 
