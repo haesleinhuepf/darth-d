@@ -58,12 +58,20 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     # we rescale image and mask to the specified size
     resized_image = transform.resize(input_image, (image_size, image_size), anti_aliasing=True)
     resized_mask = transform.resize(mask, (image_size, image_size), anti_aliasing=False)
-    
-    masked = np.swapaxes(np.swapaxes(np.asarray([(resized_mask == 0)] * 4), 0, 2), 0,1)
+
+    resized_image_rgb = _img_to_rgb(resized_image)
+    resized_image_rgb = (resized_image_rgb * 255 / resized_image_rgb.max()).astype(np.uint8)
+
+    # masked = np.swapaxes(np.swapaxes(np.asarray([(resized_mask == 0)] * 4), 0, 2), 0,1)
+    masked = (np.swapaxes(np.swapaxes(np.asarray([
+        resized_image_rgb[:, :, 0],
+        resized_image_rgb[:, :, 1],
+        resized_image_rgb[:, :, 2],
+        (resized_mask == 0) * 255]), 0, 2), 0, 1)).astype(np.uint8)
 
     # actual request to OpenAI's DALL-E 2
     response = openai.Image.create_edit(
-      image=numpy_to_bytestream(_img_to_rgb(resized_image)),
+      image=numpy_to_bytestream(resized_image_rgb),
       mask=numpy_to_bytestream(masked),
       prompt=prompt,
       n=num_images,

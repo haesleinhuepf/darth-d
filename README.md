@@ -70,12 +70,12 @@ pip install darth-d
 If you want to use it from napari, please also install the [tools menu](https://github.com/haesleinhuepf/napari-tools-menu):
 
 ```
-pip install napari-tools-menu
+mamba install napari pyqt napari-tools-menu -c conda-forge
 ```
 
 ## Feedback welcome!
 
-The napari-assistant is developed in the open because we believe in the open source community. Feel free to drop feedback as [github issue](https://github.com/haesleinhuepf/darth-d) or via [image.sc](https://image.sc)
+The `darth-d` is developed in the open because we believe in the open source community. Feel free to drop feedback as [github issue](https://github.com/haesleinhuepf/darth-d) or via [image.sc](https://image.sc)
 
 ## Contributing
 
