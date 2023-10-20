@@ -32,14 +32,18 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     from ._utilities import images_from_url_responses
 
     if mask is None:
+        # In case no mask is given, make one with a 2x2 checker board pattern
         mask = np.zeros(input_image.shape[:2], dtype=np.uint8)
         mask[:int(mask.shape[0] / 2), :int(mask.shape[1] / 2)] = 1
         mask[int(mask.shape[0] / 2):, int(mask.shape[1] / 2):] = 1
 
+        # replace two quadrants of the image
         half_replaced = replace(input_image=input_image, mask=mask, prompt=prompt, image_size=image_size, num_images=num_images)
         mask_inverse = ((mask == 0) * 1).astype(dtype=np.uint8)
 
+        # replace the other two quadrants
         if num_images > 1:
+            # in case multiple images were requested, we need to process the individual half-replaced images
             replaced = np.asarray([
                 replace(input_image=half_replaced_image, mask=mask_inverse, prompt=prompt, image_size=image_size,
                         num_images=1) for half_replaced_image in half_replaced])
@@ -49,11 +53,15 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
 
         return replaced
 
+    # in case mask is given
+
+    # we rescale image and mask to the specified size
     resized_image = transform.resize(input_image, (image_size, image_size), anti_aliasing=True)
     resized_mask = transform.resize(mask, (image_size, image_size), anti_aliasing=False)
     
     masked = np.swapaxes(np.swapaxes(np.asarray([(resized_mask == 0)] * 4), 0, 2), 0,1)
-    
+
+    # actual request to OpenAI's DALL-E 2
     response = openai.Image.create_edit(
       image=numpy_to_bytestream(_img_to_rgb(resized_image)),
       mask=numpy_to_bytestream(masked),
@@ -61,5 +69,7 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
       n=num_images,
       size=f"{image_size}x{image_size}"
     )
+
+    # bring result in right format
     return images_from_url_responses(response, input_image.shape)
     

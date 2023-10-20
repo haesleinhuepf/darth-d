@@ -1,12 +1,11 @@
-
 from napari_plugin_engine import napari_hook_implementation
+from napari_tools_menu import register_function
 
 @napari_hook_implementation
 def napari_experimental_provide_function():
     return [create_gui, vary_gui, replace_gui]
 
 
-from napari_tools_menu import register_function
 
 @register_function(menu="Generate > Create new image (DALL-E 2, OpenAI, Darth-D)",
                    image_size={"choices": [256, 512, 1024]})

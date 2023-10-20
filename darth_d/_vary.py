@@ -29,5 +29,7 @@ def vary(input_image, image_size:int=256, num_images:int = 1):
       n=num_images,
       size=f"{image_size}x{image_size}"
     )
+
+    # bring result in right format
     return images_from_url_responses(response, input_image.shape)
     
