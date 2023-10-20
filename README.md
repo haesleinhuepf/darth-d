@@ -7,9 +7,13 @@
 [![Development Status](https://img.shields.io/pypi/status/darth-d.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle#Alpha)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/darth-d)](https://napari-hub.org/plugins/darth-d)
 
-A simple to use image generator based on [OpenAIs DALL-E 2](https://openai.com/dall-e-2). 
+A simple to use image generator based on [OpenAIs DALL-E 2](https://openai.com/dall-e-2).
 It comes as [napari](https://napari.org/) plugin and has a Python interface. 
 You need an [OpenAI API KEY](https://openai.com/blog/openai-api/) to use it.
+
+![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/replace_entire_image_screencast.gif)
+
+
 This package allows to do some scientifically forbidden things with image data. 
 Handle these functions with care.
 
@@ -19,7 +23,7 @@ Handle these functions with care.
 
 ### From Python
 
-You can generate images from Python like this ([see this notebool](https://github.com/haesleinhuepf/darth-d/blob/main/demo/demo_darth-d.ipynb)).
+You can generate images from text prompts in Python like this ([see this notebool](https://github.com/haesleinhuepf/darth-d/blob/main/demo/demo_darth-d.ipynb)).
 
 ```
 from darth_d import create

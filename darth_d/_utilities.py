@@ -26,7 +26,11 @@ def images_from_url_responses(response, input_shape = None):
 
     if input_shape is not None:
         images = [transform.resize(image, input_shape, anti_aliasing=True, preserve_range=True).astype(image.dtype) for image in images]
-    
+
+        if len(input_shape) == 2 and len(images[0].shape) == 3:
+            # we sent a grey-scale image and got RGB images back
+            images = [image[:,:,0] for image in images]
+
     if len(images) == 1:
         return images[0]
     else:
