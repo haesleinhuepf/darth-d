@@ -2,6 +2,28 @@ from stackview import jupyter_displayable_output
 
 @jupyter_displayable_output(library_name='darth-d', help_url='https://github.com/haesleinhuepf/darth-d')
 def replace(input_image, mask = None, prompt:str = "A similar pattern like in the rest of the image", image_size:int=256, num_images:int = 1):
+    """
+    Replace a masked region in an image with a new pattern as described in a prompt using OpenAI's DALL-E 2.
+    In case no mask is given, the entire image is replaced in a two-step process:
+    First the upper left and lower bottom half of the image is replaced. Afterwards the other two quadrants.
+    This may lead to artifacts at quadrant borders.
+
+    Parameters
+    ----------
+    input_image: 2D image, potentially RGB
+    mask: 2D image, optional
+    prompt: str, optional
+    image_size: int, optional (only 256, 512, 1024 allowed)
+    num_images: int, optional
+
+    See Also
+    --------
+    https://platform.openai.com/docs/guides/images/edits
+
+    Returns
+    -------
+    single 2D image or 3D image with the first dimension = num_images
+    """
     from ._utilities import numpy_to_bytestream
     from stackview._image_widget import _img_to_rgb
     from skimage import transform
