@@ -11,13 +11,10 @@ A simple to use image generator based on [OpenAIs DALL-E 2](https://openai.com/d
 It comes as [napari](https://napari.org/) plugin and has a Python interface. 
 You need an [OpenAI API KEY](https://openai.com/blog/openai-api/) to use it.
 
-![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/replace_entire_image_screencast.gif)
-
-
 This package allows to do some scientifically forbidden things with image data. 
 Handle these functions with care.
 
-![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/evil_things.gif)
+![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/replace_screencast.gif)
 
 ## Usage
 
@@ -48,18 +45,12 @@ output_image = vary(input_image)
 
 Replacing regions in images is also possible. Note: handle this function with care! Do not manipulate scientific images.
 
-![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/jupyter_replace_screencast.gif)
-
 ### In Napari
 
 To generate images in Napari, click the `Tools > Generate > Image` menu
 
 ![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/napari_screenshot.png)
 
-You can modify regions in images. Note: handle this function with care! Do not manipulate scientific images.
-
-
-![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/replace_screencast.gif)
 
 ## Installation
 
