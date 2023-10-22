@@ -28,7 +28,7 @@ def vary_gui(input_image:"napari.types.ImageData", image_size:int=256, num_image
 
 @register_function(menu="Generate > Replace masked region (DALL-E 2, OpenAI, Darth-D)",
                    image_size={"choices": [256, 512, 1024]})
-def replace_gui(input_image:"napari.types.ImageData", mask:"napari.types.LabelsData", prompt:str, image_size:int=256, num_images:int = 1) -> "napari.types.ImageData":
+def replace_gui(input_image:"napari.types.ImageData", mask:"napari.types.LabelsData", prompt:str = "A similar pattern like in the rest of the image", image_size:int=256, num_images:int = 1) -> "napari.types.ImageData":
     from ._replace import replace
 
     image = replace(input_image=input_image, mask=mask, prompt=prompt, image_size=image_size, num_images=num_images)
