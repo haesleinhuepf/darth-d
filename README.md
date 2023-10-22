@@ -47,7 +47,8 @@ Replacing regions in images is also possible. Note: handle this function with ca
 
 ### In Napari
 
-To generate images in Napari, click the `Tools > Generate > Image` menu
+To generate images in Napari, click the `Tools > Generate > Image` menu. You can for example enter the prompt
+"a professional comic with white background showing a cat having an idea. the idea is visualized using a light bulb.
 
 ![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/napari_screenshot.png)
 
