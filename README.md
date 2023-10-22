@@ -65,6 +65,10 @@ If you want to use it from napari, please also install the [tools menu](https://
 mamba install napari pyqt napari-tools-menu -c conda-forge
 ```
 
+## Similar tools and plugins
+
+* https://github.com/kephale/napari-stable-diffusion
+
 ## Feedback welcome!
 
 The `darth-d` is developed in the open because we believe in the open source community. Feel free to drop feedback as [github issue](https://github.com/haesleinhuepf/darth-d) or via [image.sc](https://image.sc)
