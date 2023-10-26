@@ -23,7 +23,10 @@ def vary(input_image, image_size:int=256, num_images:int = 1):
     from ._utilities import images_from_url_responses
     
     from stackview._image_widget import _img_to_rgb
-    
+    from warnings import warn
+
+    warn("Using the replace function on scientific images could be seen as scientific misconduct. Handle this function with care.")
+
     response = openai.Image.create_variation(
       image=numpy_to_bytestream(_img_to_rgb(input_image)),
       n=num_images,

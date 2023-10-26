@@ -1,4 +1,5 @@
 from stackview import jupyter_displayable_output
+from warnings import warn
 
 @jupyter_displayable_output(library_name='darth-d', help_url='https://github.com/haesleinhuepf/darth-d')
 def replace(input_image, mask = None, prompt:str = "A similar pattern like in the rest of the image", image_size:int=256, num_images:int = 1):
@@ -30,6 +31,9 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     import numpy as np
     import openai
     from ._utilities import images_from_url_responses
+    from warnings import warn
+
+    warn("Using the replace function on scientific images could be seen as scientific misconduct. Handle this function with care.")
 
     if mask is None:
         # In case no mask is given, make one with a 2x2 checker board pattern
