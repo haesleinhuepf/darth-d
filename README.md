@@ -1,5 +1,5 @@
 # Darth-D
-[![License](https://img.shields.io/pypi/l/darth-d.svg?color=green)](https://github.com/haesleinhuepf/darth-d/raw/master/LICENSE)
+[![License](https://img.shields.io/pypi/l/darth-d.svg?color=green)](https://github.com/haesleinhuepf/darth-d/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/darth-d.svg?color=green)](https://pypi.org/project/darth-d)
 [![Python Version](https://img.shields.io/pypi/pyversions/darth-d.svg?color=green)](https://python.org)
 [![tests](https://github.com/haesleinhuepf/darth-d/workflows/tests/badge.svg)](https://github.com/haesleinhuepf/darth-d/actions)
