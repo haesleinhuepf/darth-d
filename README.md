@@ -68,6 +68,7 @@ mamba install napari pyqt napari-tools-menu -c conda-forge
 ## Similar tools and plugins
 
 * https://github.com/kephale/napari-stable-diffusion
+* https://github.com/seankmartin/napari-stable-diffusion
 
 ## Feedback welcome!
 
