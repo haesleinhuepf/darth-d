@@ -58,7 +58,7 @@ To generate images in Napari, click the `Tools > Generate > Image` menu. You can
 pip install darth-d
 ```
 
-If you want to use it from napari, please also install the [tools menu](https://github.com/haesleinhuepf/napari-tools-menu):
+If you want to use it from napari, please also install napari and the [tools menu](https://github.com/haesleinhuepf/napari-tools-menu):
 
 ```
 mamba install napari pyqt napari-tools-menu -c conda-forge
