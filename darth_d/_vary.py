@@ -12,7 +12,9 @@ def vary(input_image, image_width:int=1024, image_height:int=1024, num_images:in
     model: str, optional
         "dall-e-2", "dall-e-3"
     image_width: int, optional
+        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
     image_height: int, optional
+        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
 
     See Also
     --------
