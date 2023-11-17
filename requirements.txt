@@ -1,4 +1,4 @@
-openai
+openai>=1.2.0
 Pillow
 numpy
 stackview>=0.7.1

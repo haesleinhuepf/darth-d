@@ -29,7 +29,7 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     from stackview._image_widget import _img_to_rgb
     from skimage import transform
     import numpy as np
-    import openai
+    from openai import OpenAI
     from ._utilities import images_from_url_responses
     from warnings import warn
 
@@ -74,7 +74,9 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
         (resized_mask == 0) * 255]), 0, 2), 0, 1)).astype(np.uint8)
 
     # actual request to OpenAI's DALL-E 2
-    response = openai.Image.create_edit(
+    client = OpenAI()
+
+    response = client.images.edit(
       image=numpy_to_bytestream(resized_image_rgb),
       mask=numpy_to_bytestream(masked),
       prompt=prompt,

@@ -22,7 +22,7 @@ def images_from_url_responses(response, input_shape = None):
     from skimage.io import imread
     from skimage import transform
     import numpy as np
-    images = [imread(item['url']) for item in response['data']]
+    images = [imread(item.url) for item in response.data]
 
     if input_shape is not None:
         # make sure the output images have the same size and type as the input image

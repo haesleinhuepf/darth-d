@@ -18,11 +18,12 @@ def create(prompt:str=None, image_size:int=256, num_images:int=1):
     -------
     single 2D image or 3D image with the first dimension = num_images
     """
-    import openai
-    
+    from openai import OpenAI
     from ._utilities import images_from_url_responses
 
-    response = openai.Image.create(
+    client = OpenAI()
+
+    response = client.images.generate(
       prompt=prompt,
       n=num_images,
       size=f"{image_size}x{image_size}"

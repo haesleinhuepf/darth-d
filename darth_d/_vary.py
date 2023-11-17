@@ -18,7 +18,7 @@ def vary(input_image, image_size:int=256, num_images:int = 1):
     -------
     single 2D image or 3D image with the first dimension = num_images
     """
-    import openai
+    from openai import OpenAI
     from ._utilities import numpy_to_bytestream
     from ._utilities import images_from_url_responses
     
@@ -26,8 +26,9 @@ def vary(input_image, image_size:int=256, num_images:int = 1):
     from warnings import warn
 
     warn("Using the replace function on scientific images could be seen as scientific misconduct. Handle this function with care.")
+    client = OpenAI()
 
-    response = openai.Image.create_variation(
+    response = client.images.create_variation(
       image=numpy_to_bytestream(_img_to_rgb(input_image)),
       n=num_images,
       size=f"{image_size}x{image_size}"
