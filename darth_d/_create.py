@@ -1,14 +1,22 @@
 from stackview import jupyter_displayable_output
 
 @jupyter_displayable_output(library_name='darth-d', help_url='https://github.com/haesleinhuepf/darth-d')
-def create(prompt:str=None, image_size:int=256, num_images:int=1):
-    """Create an image from scratch using OpenAI's DALL-E 2.
+def create(prompt:str=None, image_width:int=1024, image_height:int=1024, num_images:int=1, model:str="dall-e-3", style:str='vivid', quality:str='standard'):
+    """Create an image from scratch using OpenAI's DALL-E 2 or 3.
 
     Parameters
     ----------
     prompt: str, text explaining what the image should show
-    image_size: int, optional (only 256, 512, 1024 allowed)
     num_images: int, optional
+        ignored for dall-e-3
+    model: str, optional
+        "dall-e-2", "dall-e-3"
+    image_width: int, optional
+    image_height: int, optional
+    style: str, optional
+        "vivid" or "natural", ignored for dall-e-2
+    quality: str, optional
+        "standard" or "hd", ignored for dall-e-2
 
     See Also
     --------
@@ -23,11 +31,21 @@ def create(prompt:str=None, image_size:int=256, num_images:int=1):
 
     client = OpenAI()
 
+    size_str = f"{image_width}x{image_height}"
+
+    kwargs = {}
+    if model == "dall-e-3":
+        kwargs['style'] = style
+        kwargs['quality'] = quality
+
     response = client.images.generate(
       prompt=prompt,
       n=num_images,
-      size=f"{image_size}x{image_size}"
+      model=model,
+      size=size_str,
+        **kwargs
     )
+
 
     # bring result in right format
     return images_from_url_responses(response)
