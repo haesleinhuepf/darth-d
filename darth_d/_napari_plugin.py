@@ -40,9 +40,9 @@ def create_gui_dalle3(prompt:str, image_size:int="1024x1024", quality:str="stand
 
 @register_function(menu="Generate > Vary image (DALL-E 2, OpenAI, Darth-D)",
                    image_size={"choices": [256, 512, 1024]})
-def vary_gui(input_image:"napari.types.ImageData", image_size:int=256, num_images:int = 1) -> "napari.types.ImageData":
+def vary_gui_dalle2(input_image:"napari.types.ImageData", image_size:int=256, num_images:int = 1) -> "napari.types.ImageData":
     from ._vary import vary
-    image = vary(input_image=input_image, image_size=image_size, num_images=num_images)
+    image = vary(input_image=input_image, image_width=image_size, image_height=image_size, num_images=num_images, model='dall-e-2')
 
     try:
         from napari.utils.notifications import show_warning
@@ -52,6 +52,26 @@ def vary_gui(input_image:"napari.types.ImageData", image_size:int=256, num_image
 
     return image
     
+
+@register_function(menu="Generate > Vary image (DALL-E 3, OpenAI, Darth-D)",
+                   image_size={"choices": ["1024x1024", "1024x1792", "1792x1024"]})
+def vary_gui_dalle3(input_image:"napari.types.ImageData", image_size:str="1024x1024") -> "napari.types.ImageData":
+    from ._vary import vary
+
+    image_size = image_size.split("x")
+    image_width = int(image_size[0])
+    image_height = int(image_size[1])
+
+    image = vary(input_image=input_image, image_width=image_width, image_height=image_height, model='dall-e-3')
+
+    try:
+        from napari.utils.notifications import show_warning
+        show_warning("Using the vary function on scientific images could be seen as scientific misconduct. Handle this function with care.")
+    except:
+        pass
+
+    return image
+
 
 @register_function(menu="Generate > Replace masked region (DALL-E 2, OpenAI, Darth-D)",
                    prompt={"widget_type": "TextEdit"},
