@@ -7,11 +7,11 @@
 [![Development Status](https://img.shields.io/pypi/status/darth-d.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle#Alpha)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/darth-d)](https://napari-hub.org/plugins/darth-d)
 
-A simple to use image generator based on [OpenAIs DALL-E 2](https://openai.com/dall-e-2).
+A simple to use image generator based on [OpenAIs DALL-E 2/3](https://openai.com/dall-e-2).
 It comes as [napari](https://napari.org/) plugin and has a Python interface. 
 You need an [OpenAI API KEY](https://openai.com/blog/openai-api/) to use it.
 
-Using the some of the functions on scientific images could be seen as scientific misconduct. Handle these functions with care.
+Using some of the functions on scientific images could be seen as scientific misconduct. Handle these functions with care.
 
 ![](https://github.com/haesleinhuepf/darth-d/raw/main/docs/images/replace_screencast.gif)
 
