@@ -2,9 +2,9 @@ from stackview import jupyter_displayable_output
 from warnings import warn
 
 @jupyter_displayable_output(library_name='darth-d', help_url='https://github.com/haesleinhuepf/darth-d')
-def replace(input_image, mask = None, prompt:str = "A similar pattern like in the rest of the image", image_width:int=1024, image_height:int=1024, num_images:int = 1, model:str="dall-e-3"):
+def replace(input_image, mask = None, prompt:str = "A similar pattern like in the rest of the image", image_width:int=1024, image_height:int=1024, num_images:int = 1):
     """
-    Replace a masked region in an image with a new pattern as described in a prompt using OpenAI's DALL-E 2 or 3.
+    Replace a masked region in an image with a new pattern as described in a prompt using OpenAI's DALL-E 2.
     In case no mask is given, the entire image is replaced in a two-step process:
     First the upper left and lower bottom half of the image is replaced. Afterwards the other two quadrants.
     This may lead to artifacts at quadrant borders.
@@ -15,13 +15,10 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     mask: 2D image, optional
     prompt: str, optional
     num_images: int, optional
-        ignored for dall-e-3
-    model: str, optional
-        "dall-e-2", "dall-e-3"
     image_width: int, optional
-        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
+        must be 256, 512 or 1024 for dall-e-2
     image_height: int, optional
-        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
+        must be 256, 512 or 1024 for dall-e-2
 
     See Also
     --------
@@ -38,6 +35,8 @@ def replace(input_image, mask = None, prompt:str = "A similar pattern like in th
     from openai import OpenAI
     from ._utilities import images_from_url_responses
     from warnings import warn
+
+    model: str = "dall-e-2"
 
     warn("Using the replace function on scientific images could be seen as scientific misconduct. Handle this function with care.")
 
