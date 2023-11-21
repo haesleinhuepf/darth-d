@@ -1,8 +1,8 @@
 from stackview import jupyter_displayable_output
 
 @jupyter_displayable_output(library_name='darth-d', help_url='https://github.com/haesleinhuepf/darth-d')
-def vary(input_image, image_width:int=1024, image_height:int=1024, num_images:int=1, model:str="dall-e-3"):
-    """Varies an image using OpenAI's DALL-E 2 or 3.
+def vary(input_image, image_width:int=1024, image_height:int=1024, num_images:int=1):
+    """Varies an image using OpenAI's DALL-E 2.
 
     Parameters
     ----------
@@ -12,9 +12,9 @@ def vary(input_image, image_width:int=1024, image_height:int=1024, num_images:in
     model: str, optional
         "dall-e-2", "dall-e-3"
     image_width: int, optional
-        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
+        must be 256, 512 or 1024 for dall-e-2
     image_height: int, optional
-        must be 256, 512 or 1024 for dall-e-2 or 1024, 1792 for dall-e-3
+        must be 256, 512 or 1024 for dall-e-2
 
     See Also
     --------
@@ -30,6 +30,8 @@ def vary(input_image, image_width:int=1024, image_height:int=1024, num_images:in
     
     from stackview._image_widget import _img_to_rgb
     from warnings import warn
+
+    model: str = "dall-e-2"
 
     warn("Using the vary function on scientific images could be seen as scientific misconduct. Handle this function with care.")
     client = OpenAI()
